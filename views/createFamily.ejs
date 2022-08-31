@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Family</title>
+</head>
+<body>
+    Enter your last name <br>
+    <input type="text" id="name"><br>
+    <button id="continueBtn" onclick="Create()">continue</button><br>
+    Your Code is: <%=code%>
+    <script>
+        function Create(){
+        var continueBtn = document.getElementById("continueBtn")
+        document.location.href = "/newfamily?code="+"<%=code%>"+"&&name="+document.getElementById("name").value
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=day%></title>
+</head>
+<body>
+    <button onclick="back()">Back</button>
+    BreakFast:
+    <input id="breakfast" type="text">
+    Lunch:
+    <input id="lunch" type="text">
+    Dinner:
+    <input id="dinner" type="text">
+    <button onclick="save()">Save</button>
+    <script>
+        function back(){
+            document.location.href = "/family?code="+"<%=code%>"
+        }
+        function save(){
+            document.location.href = "/save?code="+"<%=code%>"+"&&"+"breakfast="+$("breakfast").value+"&&lunch="+$("lunch").value+"&&dinner="+$("dinner").value+"&&day="+"<%=day%>"
+        }
+        function $(id){
+            return document.getElementById(id)
+        }
+        $("breakfast").value = "<%=breakfast%>"
+        $("lunch").value = "<%=lunch%>"
+        $("dinner").value = "<%=dinner%>"
+    </script>
+</body>
+</html>

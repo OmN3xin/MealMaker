@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+</head>
+<body>
+    <h3>The <%=name%>'s</h3>
+    <div id="buttons">
+    <button>Sunday</button><br>
+    <button>Monday</button><br>
+    <button>Tuesday</button><br>
+    <button>Wednesday</button><br>
+    <button>Thursday</button><br>
+    <button>Friday</button><br>
+    <button>Saturday</button><br>
+    </div>
+    Joining Code: <%=code%>
+    <script>
+        let buttons = document.getElementById("buttons").children
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click",function(){
+                document.location.href = '/day?day='+buttons[i].innerHTML.toLocaleLowerCase()+'&&code='+"<%=code%>"
+            })
+        }
+    </script>
+</body>
+</html>
