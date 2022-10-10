@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="container py-5 my-4">Meal Maker</h1>
-    <a href="/create"><button class="container py-5 my-5">Create Family</button></a>
-    <a href="/join"><button class="container py-5 my-5">Join Family</button></a>
-		<script>
-			let code = localStorage.getItem("code")
-			if(code != ""){
-				document.location.href = "/family?code="+code
-			}
+	Are you Bryce or Cali, too bad<br>
+	<button onclick="Home()">Return to Home</button>
+	<script>
+		function Home(){
+			document.location.href = "/family?code="+"<%=code%>";
+		}
 		</script>
+	<script src="color.js"></script>
 </body>
 </html>

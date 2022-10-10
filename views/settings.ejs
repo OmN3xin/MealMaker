@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Maker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div style="text-align:left">
+	<button class="container" style="text-align:center;width:75px;" onclick="Back()">Back</button>
+	</div>
+	Accent:<br>
+	<select id="accent" class="container-fluid p-3 my-1">
+		<option>lightblue</option>
+		<option>blue</option>
+		<option>green</option>
+		<option>orange</option>
+		<option>yellow</option>
+	</select> <br>
+	Background:<br>
+	<select id="background" class="container-fluid p-3 my-1">
+		<option>white</option>
+		<option>black</option>
+		<option>gray</option>
+	</select> <br>
+	Text Color:<br>
+	<select id="text" class="container-fluid p-3 my-1">
+		<option>black</option>
+		<option>white</option>
+	</select> <br>
+	<button onclick="select()" class="container">select</button><br>
+		Admin Code:<br>
+	<input class="container" style="width:100px" id="admin">
+	<button onclick="Admin()">Join</button>
+    <h4 class="container">Joining Code: <%=code%></h4>
+		<button onclick="Leave()" class="container">Leave Family</button>
+	<script>
+	function Admin(){
+		document.location.href = "/admin?admincode="+$("admin").value+"&&code="+"<%=code%>";
+	} 
+	function $(get){
+		return document.getElementById(get);
+	}
+	function setDefaultProp(property){
+			let prop = $(property).options;
+		for(let i = 0;i<prop.length;i++){
+			if(prop[i].value == localStorage.getItem(property)){
+				console.log(prop[i]);
+				prop.selectedIndex = i;
+			}
+		}
+	}
+	function setDefaults(){
+		setDefaultProp("accent");
+		setDefaultProp("background");
+		setDefaultProp("text");
+	}
+	setDefaults()
+	function set(name){
+	localStorage.setItem(name,$(name).value);
+	}
+	function select(){
+		set("accent");
+		set("background");
+		set("text");
+		window.location.reload();
+	}
+	function Back(){
+		document.location.href = "/family?code="+"<%=code%>";
+	}
+	function Leave(){
+		localStorage.setItem("code","");
+		document.location.href = "/"
+	}
+	</script>
+	<script src="color.js"></script>
+</body>
+</html>

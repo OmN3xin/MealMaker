@@ -1,0 +1,32 @@
+:root{
+	--accent: lightblue;
+	--background: white;
+	--text:black;
+}
+*{
+		color: var(--text);
+    text-align: center;
+		outline: none;
+}
+html,body, button{
+    background-color: var(--background);
+}
+button{
+    background-color: var(--background);
+}
+input,select,option,button{
+	border-radius: 10px;
+}
+input, select, button{
+    border-color: black;
+}
+input:focus{
+    outline-width: 0;
+}
+button:hover, input, select, option{
+    background-color: var(--accent);
+}
+
+a{
+    font-size: x-large;
+}
